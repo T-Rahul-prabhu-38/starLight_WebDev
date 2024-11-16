@@ -14,9 +14,7 @@ import mainImg from "/bg.jpg";
 import image1 from "/himachl.jpg";
 import image2 from "/varnasi.jpg";
 import image3 from "/monument.jpg";
-// import image4 from "/tajmahal.jpg";
 import image5 from "/waterfalls.jpeg";
-import LoginSignupForm from "../signupPage/signup";
 
 export const SmoothScrollHero = () => {
   return (
@@ -24,15 +22,13 @@ export const SmoothScrollHero = () => {
       <ReactLenis
         root
         options={{
-          // Learn more -> https://github.com/darkroomengineering/lenis?tab=readme-ov-file#instance-settings
           lerp: 0.05,
-          //   infinite: true,
-          //syncTouch: true,
         }}
       >
         <Nav />
         <Hero />
         <Schedule />
+        <Testimonials /> {/* Include the Testimonials section here */}
       </ReactLenis>
     </div>
   );
@@ -65,9 +61,7 @@ const Hero = () => {
       className="relative w-full"
     >
       <CenterImage />
-
       <ParallaxImages />
-
       <div className="absolute bottom-0 left-0 right-0 h-96 bg-gradient-to-b from-zinc-950/0 to-zinc-950" />
     </div>
   );
@@ -79,7 +73,7 @@ const CenterImage = () => {
   const clip1 = useTransform(scrollY, [0, 1500], [25, 0]);
   const clip2 = useTransform(scrollY, [0, 1500], [75, 100]);
 
-  const clipPath = useMotionTemplate`polygon(${clip1}% ${clip1}%, ${clip2}% ${clip1}%, ${clip2}% ${clip2}%, ${clip1}% ${clip2}%)`;
+  const clipPath = useMotionTemplate`polygon(${clip1}% ${clip1}%, ${clip2}% ${clip1}%, ${clip2}% ${clip1}%, ${clip2}%)`;
 
   const backgroundSize = useTransform(
     scrollY,
@@ -93,17 +87,25 @@ const CenterImage = () => {
   );
 
   return (
-    <motion.div
-      className="sticky top-0 h-screen w-full"
-      style={{
-        clipPath,
-        backgroundSize,
-        opacity,
-        backgroundImage: `url(${mainImg})`,
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-    />
+    <>
+      <motion.div
+        className="sticky top-0 h-screen w-full"
+        style={{
+          clipPath,
+          backgroundSize,
+          opacity,
+          backgroundImage: `url(${mainImg})`,
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      />
+      <motion.div
+        className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-8xl font-bold"
+        style={{ opacity }}
+      >
+        Spot-ly
+      </motion.div>
+    </>
   );
 };
 
@@ -112,8 +114,7 @@ const ParallaxImages = () => {
     <div className="mx-auto max-w-5xl px-4 pt-[200px]">
       <ParallaxImg
         src={image2}
-        // src="https://in.pinterest.com/pin/319333429846469362/"
-        alt="And example of a space launch"
+        alt="An example of a space launch"
         start={-200}
         end={200}
         className="w-1/3"
@@ -210,12 +211,69 @@ const ScheduleItem = ({ title, date, location }) => {
     >
       <div>
         <p className="mb-1.5 text-xl text-zinc-50">{title}</p>
-        <p className="text-sm uppercase text-zinc-500">{date}</p>
+        <p className="text-sm uppercase text-zinc-50">{date}</p>
       </div>
-      <div className="flex items-center gap-1.5 text-end text-sm uppercase text-zinc-500">
+      <div className="flex items-center gap-1.5 text-end text-sm uppercase text-zinc-50">
         <p>{location}</p>
         <FiMapPin />
       </div>
     </motion.div>
+  );
+};
+
+const Testimonials = () => {
+  return (
+    <section className="bg-zinc-950 text-white py-12">
+      <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+        <h2 className="text-center text-4xl font-bold tracking-tight sm:text-5xl">
+          Read trusted reviews from our customers
+        </h2>
+
+        <div className="mt-8 [column-fill:_balance] sm:columns-2 lg:columns-3 lg:gap-8">
+          {[...Array(6)].map((_, i) => (
+            <div key={i} className="mb-8 sm:break-inside-avoid">
+              <div className="relative bg-zinc-800 p-6 rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                <blockquote className="text-white">
+                  <div className="flex items-center gap-4">
+                    <img
+                      alt=""
+                      src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
+                      className="size-14 rounded-full object-cover"
+                    />
+
+                    <div>
+                      <div className="flex justify-center gap-0.5 text-green-500">
+                        {[...Array(5)].map((_, i) => (
+                          <svg
+                            key={i}
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="size-5"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                          >
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        ))}
+                      </div>
+
+                      <p className="mt-0.5 text-lg font-medium text-white">
+                        Paul Starr
+                      </p>
+                    </div>
+                  </div>
+
+                  <p className="mt-4 text-gray-300">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Culpa sit rerum incidunt, a consequuntur recusandae ab saepe
+                    illo est quia obcaecati neque quibusdam eius accusamus error
+                    officiis atque voluptates magnam!
+                  </p>
+                </blockquote>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };

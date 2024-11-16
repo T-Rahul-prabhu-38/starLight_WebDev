@@ -1,7 +1,5 @@
-
+import { Example } from "../components/sidebar";
 
 export const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
+  return <Example />;
+};
