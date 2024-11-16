@@ -10,13 +10,13 @@ import { SiSpacex } from "react-icons/si";
 import { FiArrowRight, FiMapPin } from "react-icons/fi";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-import mainImg from "/bg.jpg"
+import mainImg from "/bg.jpg";
 import image1 from "/himachl.jpg";
 import image2 from "/varnasi.jpg";
 import image3 from "/monument.jpg";
-import image4 from "/tajmahal.jpg";
+// import image4 from "/tajmahal.jpg";
 import image5 from "/waterfalls.jpeg";
-
+import LoginSignupForm from "../signupPage/signup";
 
 export const SmoothScrollHero = () => {
   return (
@@ -111,7 +111,7 @@ const ParallaxImages = () => {
   return (
     <div className="mx-auto max-w-5xl px-4 pt-[200px]">
       <ParallaxImg
-        src= {image2}
+        src={image2}
         // src="https://in.pinterest.com/pin/319333429846469362/"
         alt="And example of a space launch"
         start={-200}
@@ -139,7 +139,6 @@ const ParallaxImages = () => {
         end={-500}
         className="ml-24 w-5/12"
       />
-      
     </div>
   );
 };
@@ -191,7 +190,7 @@ const Schedule = () => {
         <ScheduleItem title="NROL-186" date="Mar 1st" location="California" />
         <ScheduleItem title="GOES-U" date="Mar 8th" location="California" />
         <ScheduleItem title="ASTRA 1P" date="Apr 8th" location="Texas" />
-        <Link to="/home">
+        <Link to="/LoginSignupForm">
           <button className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white font-bold py-2 px-4 rounded shadow-lg hover:from-purple-600 hover:via-pink-600 hover:to-red-600 transition-all duration-300">
             Take me to the future
           </button>

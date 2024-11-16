@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { FaFire } from "react-icons/fa";
 // import FloatingNavDemo from "../components/navbar";
 
-export const CustomKanban = () => {
+export const Home = () => {
   return (
     <div className="h-screen w-full bg-neutral-900 text-neutral-50">
       {/* <FloatingNavDemo /> */}
