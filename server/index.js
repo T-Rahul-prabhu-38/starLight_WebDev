@@ -17,6 +17,7 @@ app.get("/ping", (req, res) => {
 app.use(bodyParser.json());
 app.use(
   cors({
+    origin:["https://star-light-web-dev-kbea.vercel.app/"],
     methods: ["POST", "GET"],
     credentials: true,
   })
