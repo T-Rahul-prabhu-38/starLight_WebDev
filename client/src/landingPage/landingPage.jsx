@@ -16,7 +16,6 @@ import image2 from "/varnasi.jpg";
 import image3 from "/monument.jpg";
 import image5 from "/waterfalls.jpeg";
 
-
 export const SmoothScrollHero = () => {
   return (
     <div className="bg-zinc-950">
@@ -38,7 +37,10 @@ export const SmoothScrollHero = () => {
 const Nav = () => {
   return (
     <nav className="fixed left-0 right-0 top-0 z-50 flex items-center justify-between px-6 py-3 text-white">
-      <Link to="/LoginSignupForm"> <SiSpacex className="text-3xl mix-blend-difference" /></Link>
+      <Link to="/LoginSignupForm">
+        {" "}
+        <SiSpacex className="text-3xl mix-blend-difference" />
+      </Link>
       <button
         onClick={() => {
           document.getElementById("launch-schedule")?.scrollIntoView({
@@ -691,13 +693,9 @@ const Testimonials = () => {
               </div>
 
               <p className="mt-4 text-white-700">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Cupiditate officia natus blanditiis rerum incidunt ex autem
-                repudiandae doloribus eveniet quia? Culpa commodi quae atque
-                perspiciatis? Provident, magni beatae saepe porro aspernatur
-                facere neque sunt possimus assumenda perspiciatis aperiam
-                quisquam animi libero voluptatem fuga. Repudiandae, facere? Nemo
-                reprehenderit quas ratione quis.
+                *1. Sarah M. (Traveler from Chennai)* This website made planning
+                my trip so easy! The recommendations were spot on, and I
+                discovered hidden gems I would have never found on my own. ,
               </p>
             </blockquote>
           </div>
@@ -762,10 +760,9 @@ const Testimonials = () => {
               </div>
 
               <p className="mt-4 text-white-700">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
-                quaerat quasi ipsa repellendus quam! Beatae pariatur quia
-                distinctio fugit repellendus repudiandae nostrum consectetur
-                quibusdam quo.
+                *5. Priya L. (Solo Traveler)* As a solo traveler, I felt more
+                confident exploring thanks to the safety tips and reviews. This
+                website is a game changer!
               </p>
             </blockquote>
           </div>
@@ -830,10 +827,9 @@ const Testimonials = () => {
               </div>
 
               <p className="mt-4 text-white-700">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Maiores quaerat quasi ipsa repellendus quam! Beatae pariatur
-                quia distinctio fugit repellendus repudiandae nostrum
-                consectetur quibusdam quo.
+                6. Thomas W. (Photographer) The curated photography spots were
+                incredible! I captured some of the best shots of my career, all
+                thanks to this site.
               </p>
             </blockquote>
           </div>
@@ -898,8 +894,9 @@ const Testimonials = () => {
               </div>
 
               <p className="mt-4 text-white-700">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
-                numquam, unde molestiae commodi temporibus dicta.
+                *10. Jason T. (Family Traveler) Traveling with kids can be
+                tough, but this website provided family-friendly suggestions
+                that kept everyone happy. Amazing work!
               </p>
             </blockquote>
           </div>
