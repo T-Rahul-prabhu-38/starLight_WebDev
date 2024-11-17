@@ -2,7 +2,7 @@ import { GrMapLocation } from "react-icons/gr";
 
 const LegacyApp = () => {
   const navigateToLatest = () => {
-    window.location.href = "http://localhost:3000"; // URL of Project 2
+    window.location.href = "https://client-side-deployment.vercel.app/"; // URL of Project 2
   };
 
   return (
