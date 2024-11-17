@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const mongo_url = "mongodb+srv://rahultest:Lonewolf@38@cluster0.8vi2o.mongodb.net/TEST?retryWrites=true&w=majority&appName=Cluster0";
+const mongo_url = "mongodb+srv://rahultest:Lonewolf@cluster0.8vi2o.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster0";
 
 mongoose
   .connect(mongo_url)
