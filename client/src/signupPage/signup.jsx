@@ -5,9 +5,11 @@ import { handleError, handleSuccess } from "../utils";
 import "react-toastify/dist/ReactToastify.css";
 import signupImgae from "./waterfalls.jpeg";
 import leftImage from "./left.jpg";
+import axios from "axios";
 
 const LoginSignupForm = () => {
   const [isRightPanelActive, setIsRightPanelActive] = useState(false);
+  axios.defaults.withcredentials = true;
 
   const [signupInfo, setSignupInfo] = useState({
     name: "",
