@@ -193,7 +193,7 @@ const Schedule = () => {
         <ScheduleItem title="Hit the SOS button in emergencies, and we’ve got your back wherever you are." />
         <ScheduleItem title="Keep your trip organized with a flexible to-do list. Add, edit, or update as your plans change!" />
         <ScheduleItem title="Discover the best nearby restaurants and accommodations at your fingertips." />
-        <Link to="/LoginSignupForm">
+        <Link to="/home">
           <button className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white font-bold py-2 px-4 rounded shadow-lg hover:from-purple-600 hover:via-pink-600 hover:to-red-600 transition-all duration-300">
             Take me to the future
           </button>
