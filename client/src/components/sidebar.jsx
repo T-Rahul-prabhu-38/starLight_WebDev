@@ -1,11 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import {
-  FiBarChart,
   FiChevronsRight,
   FiDollarSign,
   FiHome,
-  FiMonitor,
   FiShoppingCart,
   FiTag,
   FiUsers,
@@ -14,6 +12,12 @@ import {
 import { motion } from "framer-motion";
 import { Home } from "../mainPage/toDo";
 import UserLocation from "../mainPage/dashBoard";
+
+import { ChatBott } from "./chatBot";
+import SOS from "./SOS";
+import { GrMapLocation } from "react-icons/gr";
+import { MapFilterPage } from "./MapFilterPage";
+import workingImage from "./working.jpg";
 
 export const Example = () => {
   const [selected, setSelected] = useState("Dashboard");
@@ -57,13 +61,7 @@ const Sidebar = ({ selected, setSelected }) => {
           open={open}
           notifs={1}
         />
-        <Option
-          Icon={FiMonitor}
-          title="View Site"
-          selected={selected}
-          setSelected={setSelected}
-          open={open}
-        />
+
         <Option
           Icon={FiShoppingCart}
           title="Products"
@@ -73,30 +71,35 @@ const Sidebar = ({ selected, setSelected }) => {
         />
         <Option
           Icon={FiTag}
-          title="Tags"
+          title="chatbot"
           selected={selected}
           setSelected={setSelected}
           open={open}
         />
-        <Option
+        {/* <Option
           Icon={FiBarChart}
           title="Analytics"
           selected={selected}
           setSelected={setSelected}
           open={open}
-        />
+        /> */}
         <Option
           Icon={FiUsers}
-          title="Members"
+          title="Community tab"
+          selected={selected}
+          setSelected={setSelected}
+          open={open}
+        />
+        <Option
+          Icon={GrMapLocation}
+          title="Map Filter"
           selected={selected}
           setSelected={setSelected}
           open={open}
         />
         <Option
           Icon={FiUser}
-          title={loggedUser ? loggedUser : "You"}
-          selected={selected}
-          setSelected={setSelected}
+          title={loggedUser ? `${loggedUser}(you)` : "You"}
           open={open}
         />
       </div>
@@ -247,6 +250,7 @@ const ExampleContent = ({ selected }) => {
             className="bg-white p-6 rounded-lg shadow-sm"
           >
             <UserLocation />
+            <SOS />
           </motion.div>
         )}
 
@@ -258,8 +262,57 @@ const ExampleContent = ({ selected }) => {
           >
             <div className="h-full">
               <Home />
+              <SOS />
               {/* <MapLibreComponent /> */}
             </div>
+          </motion.div>
+        )}
+        {selected === "chatbot" && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="bg-white h-full rounded-lg shadow-sm overflow-auto"
+          >
+            <div className="h-full">
+              <ChatBott />
+              <SOS />
+            </div>
+          </motion.div>
+        )}
+        {selected === "Products" && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="bg-white h-full rounded-lg shadow-sm overflow-auto"
+            style={{
+              backgroundImage: `url(${workingImage})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          ></motion.div>
+        )}
+
+        {selected === "Community tab" && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="bg-white h-full rounded-lg shadow-sm overflow-auto"
+            style={{
+              backgroundImage: `url(${workingImage})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          ></motion.div>
+        )}
+
+        {selected === "Map Filter" && (
+          <motion.div
+            initial={{ opacity: 0, y: 90 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="bg-white p-6 rounded-lg shadow-sm"
+          >
+            <MapFilterPage />
+            <SOS />
           </motion.div>
         )}
       </div>

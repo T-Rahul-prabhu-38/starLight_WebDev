@@ -3,35 +3,12 @@ import { useState, useEffect } from "react";
 import { FiPlus, FiTrash, FiLogOut } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { FaFire } from "react-icons/fa";
-import { FiUsers } from "react-icons/fi";
+import SOS from "../components/SOS";
 
 export const UserCount = ({ userCount }) => {
   return { userCount };
 };
 
-const UserStats = ({ userCount, recentUsers }) => {
-  return (
-    <div className="absolute left-4 top-4 rounded-lg bg-neutral-800 p-4">
-      <div className="flex items-center gap-2 text-violet-400">
-        <FiUsers />
-        <span className="text-sm font-medium">User Statistics</span>
-      </div>
-      <div className="mt-2 text-sm text-neutral-300">
-        <p>Total Users: {userCount}</p>
-        <div className="mt-2">
-          <p className="mb-1 text-xs text-neutral-400">Recent Users:</p>
-          <ul className="list-inside list-disc">
-            {recentUsers.map((user) => (
-              <li key={user} className="text-xs">
-                {user}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </div>
-  );
-};
 // Add Login Component
 const Login = ({ onLogin, existingUsers }) => {
   const [username, setUsername] = useState("");
@@ -49,20 +26,21 @@ const Login = ({ onLogin, existingUsers }) => {
   };
 
   return (
-    <div className="flex h-screen w-full items-center justify-center bg-neutral-900">
-      <div className="w-80 rounded-lg bg-neutral-800 p-8">
-        <h2 className="mb-6 text-2xl text-neutral-50">Login to Kanban</h2>
+    <div className="flex h-screen w-full items-center justify-center bg-gray-100">
+      <SOS />
+      <div className="w-80 rounded-lg bg-white p-8 shadow-md">
+        <h2 className="mb-6 text-2xl text-gray-800">Login to Kanban</h2>
         <form onSubmit={handleSubmit} className="mb-4">
           <input
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             placeholder="Enter username"
-            className="mb-4 w-full rounded border border-neutral-700 bg-neutral-900 p-2 text-neutral-50 placeholder-neutral-400"
+            className="mb-4 w-full rounded border border-gray-300 bg-gray-50 p-2 text-gray-800 placeholder-gray-400"
           />
           <button
             type="submit"
-            className="w-full rounded bg-violet-500 p-2 text-neutral-50 hover:bg-violet-600"
+            className="w-full rounded bg-blue-500 p-2 text-white hover:bg-blue-600"
           >
             Login
           </button>
@@ -72,14 +50,14 @@ const Login = ({ onLogin, existingUsers }) => {
           <div>
             <button
               onClick={() => setShowExisting(!showExisting)}
-              className="mb-2 text-sm text-violet-400 hover:text-violet-300"
+              className="mb-2 text-sm text-blue-500 hover:text-blue-400"
             >
               {showExisting ? "Hide existing users" : "Show existing users"}
             </button>
 
             {showExisting && (
-              <div className="rounded border border-neutral-700 p-2">
-                <p className="mb-2 text-xs text-neutral-400">
+              <div className="rounded border border-gray-300 p-2">
+                <p className="mb-2 text-xs text-gray-500">
                   Select existing user:
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -87,7 +65,7 @@ const Login = ({ onLogin, existingUsers }) => {
                     <button
                       key={user}
                       onClick={() => selectExistingUser(user)}
-                      className="rounded bg-neutral-700 px-2 py-1 text-xs text-neutral-200 hover:bg-neutral-600"
+                      className="rounded bg-gray-200 px-2 py-1 text-xs text-gray-700 hover:bg-gray-300"
                     >
                       {user}
                     </button>
@@ -150,19 +128,15 @@ export const Home = () => {
   };
 
   return (
-    <div className="h-screen w-full bg-neutral-900 text-neutral-50">
+    <div className="h-screen w-full bg-gray-100 text-gray-800">
       {!user ? (
         <Login onLogin={handleLogin} existingUsers={userStats.recentUsers} />
       ) : (
         <div className="h-full">
           <div className="flex justify-between p-4">
-            <UserStats
-              userCount={userStats.totalUsers}
-              recentUsers={userStats.recentUsers}
-            />
             <button
               onClick={handleLogout}
-              className="flex items-center gap-2 rounded bg-neutral-800 px-4 py-2 text-sm hover:bg-neutral-700"
+              className="flex items-center gap-2 rounded bg-gray-200 px-4 py-2 text-sm hover:bg-gray-300"
             >
               <span>{user}</span>
               <FiLogOut />
@@ -194,30 +168,30 @@ const Board = ({ user }) => {
   return (
     <div className="flex h-full w-full gap-3 overflow-scroll p-12">
       <Column
-        title="Backup"
+        title="Backlog"
         column="backlog"
-        headingColor="text-neutral-500"
+        headingColor="text-gray-500"
         cards={cards}
         setCards={setCards}
       />
       <Column
-        title="Must Visi"
+        title="To Do"
         column="todo"
-        headingColor="text-yellow-200"
+        headingColor="text-yellow-500"
         cards={cards}
         setCards={setCards}
       />
       <Column
-        title="In progress"
+        title="In Progress"
         column="doing"
-        headingColor="text-blue-200"
+        headingColor="text-blue-500"
         cards={cards}
         setCards={setCards}
       />
       <Column
         title="Complete"
         column="done"
-        headingColor="text-emerald-200"
+        headingColor="text-green-500"
         cards={cards}
         setCards={setCards}
       />

@@ -3,6 +3,7 @@ import { SmoothScrollHero } from "./landingPage/landingPage";
 import { Routes, Route } from "react-router-dom";
 import { Home } from "./mainPage/Home";
 import LoginSignupForm from "./signupPage/signup";
+// import HotelSearch from "./test";
 
 function App() {
   return (

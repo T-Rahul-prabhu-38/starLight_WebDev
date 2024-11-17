@@ -4,6 +4,7 @@ import { ToastContainer } from "react-toastify";
 import { handleError, handleSuccess } from "../utils";
 import "react-toastify/dist/ReactToastify.css";
 import signupImgae from "./waterfalls.jpeg";
+import leftImage from "./left.jpg";
 
 const LoginSignupForm = () => {
   const [isRightPanelActive, setIsRightPanelActive] = useState(false);
@@ -243,8 +244,7 @@ const LoginSignupForm = () => {
                 transform transition-transform duration-500 ease-in-out
                 ${isRightPanelActive ? "translate-x-0" : "-translate-x-[20%]"}`}
               style={{
-                backgroundImage:
-                  "url(https://in.pinterest.com/pin/7810999347574217)",
+                backgroundImage: `url(${leftImage})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundColor: "#e9e9e9", // Fallback color
