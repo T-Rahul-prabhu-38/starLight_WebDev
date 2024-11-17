@@ -39,7 +39,7 @@ const LoginSignupForm = () => {
       return handleError("name, email and password are required");
     }
     try {
-      const url = `https://star-light-web-dev.vercel.app/auth/signup`;
+      const url = "https://star-light-web-dev.vercel.app/auth/signup";
       const response = await fetch(url, {
         method: "POST",
         headers: {
@@ -81,7 +81,7 @@ const LoginSignupForm = () => {
       return handleError("email and password are required");
     }
     try {
-      const url = `https://star-light-web-dev.vercel.app/auth/login`;
+      const url = "https://star-light-web-dev.vercel.app/auth/login";
       const response = await fetch(url, {
         method: "POST",
         headers: {
